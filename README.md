@@ -17,11 +17,33 @@ El esquema de la base de datos está organizado en varias tablas principales que
 - PostgreSQL: Se requiere una instalación de PostgreSQL versión X.X o superior.
 - Conexión: Asegúrese de tener los parámetros de conexión adecuados en el archivo de configuración.
 - Creación de Tablas: Ejecute el script de creación de tablas (create_tables.sql) para configurar la estructura inicial de la base de datos.
-- 
+
 ## Uso y Funcionalidades:
 - Inserción de Datos: Utilice los scripts proporcionados (insert_data.sql) para poblar la base de datos con datos de prueba.
 - Consultas SQL: Se han incluido ejemplos básicos de consultas SQL (queries.sql) para obtener información relevante sobre los usuarios, cursos y evaluaciones.
 - Mantenimiento: Revise y actualice periódicamente la base de datos según sea necesario para reflejar cambios en el bootcamp.
+
+## Queries de prueba: 
+
+SELECT * FROM cursos as c
+INNER JOIN vertical as v ON v.verticalid = c.verticalid
+where vertical = 'DS'
+
+SELECT claustro.rol, claustro.nombre, cursos.verticalid, cursos.promocionid FROM claustro
+INNER JOIN claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
+INNER JOIN cursos ON cursos.cursoid= claustro_cursos.cursoid
+WHERE verticalid = '2'
+
+SELECT claustro.rol, claustro.nombre, cursos.verticalid, cursos.promocionid FROM claustro
+INNER JOIN claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
+INNER JOIN cursos ON cursos.cursoid= claustro_cursos.cursoid
+WHERE rol = 'TA'
+
+SELECT * FROM alumnos
+INNER JOIN proyectosalumnos ON proyectosalumnos.alumnoid = alumnos.alumnoid
+
+SELECT * FROM proyectos
+INNER JOIN proyectosalumnos ON proyectosalumnos.proyectoid = proyectos.proyectoid
 
 
 ### Contacto:
