@@ -25,25 +25,51 @@ El esquema de la base de datos está organizado en varias tablas principales que
 
 ## Queries de prueba: 
 
-SELECT * FROM cursos as c
-INNER JOIN vertical as v ON v.verticalid = c.verticalid
-where vertical = 'DS'
+-- 1)
+SELECT * FROM 
+  cursos as c
+INNER JOIN 
+  vertical as v ON v.verticalid = c.verticalid
+where 
+  vertical = 'DS';
 
-SELECT claustro.rol, claustro.nombre, cursos.verticalid, cursos.promocionid FROM claustro
-INNER JOIN claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
-INNER JOIN cursos ON cursos.cursoid= claustro_cursos.cursoid
-WHERE verticalid = '2'
+-- 2)
+SELECT 
+  claustro.rol, 
+  claustro.nombre, 
+  cursos.verticalid, 
+  cursos.promocionid 
+FROM 
+  claustro
+INNER JOIN 
+  claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
+INNER JOIN 
+  cursos ON cursos.cursoid= claustro_cursos.cursoid
+WHERE 
+  verticalid = '2';
 
-SELECT claustro.rol, claustro.nombre, cursos.verticalid, cursos.promocionid FROM claustro
-INNER JOIN claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
-INNER JOIN cursos ON cursos.cursoid= claustro_cursos.cursoid
-WHERE rol = 'TA'
+-- 3)
+SELECT 
+  claustro.rol, 
+  claustro.nombre, 
+  cursos.verticalid, 
+  cursos.promocionid 
+FROM 
+  claustro
+INNER JOIN 
+  claustro_cursos ON claustro_cursos.claustroid = claustro.claustroid
+INNER JOIN 
+  cursos ON cursos.cursoid= claustro_cursos.cursoid
+WHERE 
+  rol = 'TA';
 
+-- 4)
 SELECT * FROM alumnos
-INNER JOIN proyectosalumnos ON proyectosalumnos.alumnoid = alumnos.alumnoid
+INNER JOIN proyectosalumnos ON proyectosalumnos.alumnoid = alumnos.alumnoid;
 
+-- 5)
 SELECT * FROM proyectos
-INNER JOIN proyectosalumnos ON proyectosalumnos.proyectoid = proyectos.proyectoid
+INNER JOIN proyectosalumnos ON proyectosalumnos.proyectoid = proyectos.proyectoid;
 
 
 ### Contacto:
